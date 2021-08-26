@@ -1,0 +1,3651 @@
+/*
+Copyright (c) 2018, Monochrome Design Studio. All rights reserved.
+*/
+
+body {
+	font-family: "Sawarabi Gothic";
+	-webkit-text-size-adjust: 100%;
+	background-color: #fff;
+	color: #333;
+	letter-spacing: 2px;
+	line-height: 1.5em;
+	font-weight: 300;	
+}
+
+img {
+     max-width: 100%;
+     height: auto;
+}
+
+a {
+	color: #d28d2b;
+	text-decoration: none;
+}
+
+p {
+	font-size: 12px;
+	letter-spacing: 1px;
+	line-height: 1.5em;
+}
+
+h1 {
+	font-size: 10px;
+	text-align: center;
+}
+
+h2 {
+    position: relative;
+	font-size: 140%;
+	font-family: 'Montserrat', sans-serif;
+    color: #000;
+	letter-spacing: 5px;
+}
+
+h3 {
+    position: relative;
+	font-size: 150%;
+	font-weight: 600;
+	font-family: 'Montserrat', sans-serif;
+
+    color: #000;
+	letter-spacing: 5px;
+	text-align: center;
+}
+h4 {
+    position: relative;
+	font-size: 150%;
+	font-weight: 600;
+	font-family: 'Montserrat', sans-serif;
+    color: #000;
+	letter-spacing: 5px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+
+#hd {
+	text-align: right;
+	font-size: 10px;
+}
+
+.h_space {
+    margin-top: 40px;
+}
+
+#p_navi {
+	text-align: left;
+	font-size: 10px;
+	margin-left: 5px;
+}
+
+.clear {
+	clear: both;　/*floatの解除*/
+}
+
+/*-----------------------------------------------------------------
+アニメーション
+-----------------------------------------------------------------*/
+
+/* 画面外にいる状態 */
+.fadein {
+	opacity : 0.1;
+	transform : translate(0, 50px);
+	transition : all 1000ms;
+}
+ 
+/* 画面内に入った状態 */
+.fadein.scrollin {
+	opacity : 1;
+	transform : translate(0, 0);
+}
+
+/*モーション*/
+
+#topfade-bg {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	background: #fff;
+	z-index: 20;
+}
+#topfade {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 200px;
+	margin-top: -100px;
+	margin-left: -100px;
+	text-align: center;
+	color: #fff;
+	z-index: 22;
+}
+#topfade img {
+	width: 150px;
+}
+#main-contents{
+
+}
+
+
+.top-animation{
+  /* ５秒かけてアニメーションする */
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-duration: 1s;
+  animation-delay:1s; 
+}
+
+
+/*-----------------------------------------------------------------
+ヘッダー部分
+-----------------------------------------------------------------*/
+
+@media screen and (max-width: 1200px) {
+/* Toggle Button */
+#nav-toggle {
+    display: none;
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 10;
+}
+#nav-toggle div {
+    position: relative;
+}
+#nav-toggle span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+	background: -webkit-gradient(linear, left top, right bottom, from(#990099), to(#990099));
+	background: -moz-linear-gradient(left, #990099, #990099);
+	background: linear-gradient(left, #990099, #990099);
+    left: 0;
+    -webkit-transition: .35s ease-in-out;
+    -moz-transition: .35s ease-in-out;
+    transition: .35s ease-in-out;
+}
+#nav-toggle span:nth-child(1) {
+    top: 0;
+}
+#nav-toggle span:nth-child(2) {
+    top: 10px;
+}
+#nav-toggle span:nth-child(3) {
+    top: 20px;
+}
+
+
+#top-head,
+.inner {
+	width: 100%;
+	padding: 0;
+}
+#top-head {
+	top: 0;
+	position: fixed;
+	margin-top: 0;
+	z-index: 10;
+}
+/* Fixed reset */
+#top-head.fixed {
+	padding-top: 0;
+	background: transparent;
+}
+#mobile-head {
+	background: #fff;
+	opacity: 1;
+	width: 100%;
+	height: 40px;
+	z-index: 10;
+	position: relative;
+	border-bottom: 1px #cccccc solid;
+}
+#mobile-head img {
+	padding-top: 5px;
+	padding-left: 0;
+	margin: 0 auto;
+	height: 33px;
+}
+
+#top-head.fixed .logo,
+#top-head .logo {
+	position: absolute;
+	left: 5px;
+	top: 0px;
+	color: #000;
+	font-size: 26px;
+	margin: 0 auto;
+}
+
+#global-nav {
+	position: absolute;
+	/* 開いてないときは画面外に配置 */
+	top: -515px;
+	background-color: rgba(255,255,255,1);
+	width: 100%;
+	text-align: center;
+	padding: 0;
+	-webkit-transition: .5s ease-in-out;
+	-moz-transition: .5s ease-in-out;
+	transition: .5s ease-in-out;
+}
+#global-nav ul {
+	list-style: none;
+	position: static;
+	right: 0;
+	bottom: 0;
+	font-size: 14px;
+}
+#global-nav ul li {
+	float: none;
+	position: static;
+}
+#top-head #global-nav ul li a,
+#top-head.fixed #global-nav ul li a {
+	width: 100%;
+	display: block;
+	color: #990099;
+	padding: 15px 0;
+}
+#nav-toggle {
+	display: block;
+}
+
+/* #nav-toggle 切り替えアニメーション */
+
+.open #nav-toggle span:nth-child(1) {
+	top: 10px;
+	-webkit-transform: rotate(215deg);
+	-moz-transform: rotate(215deg);
+	transform: rotate(215deg);
+}
+.open #nav-toggle span:nth-child(2) {
+	width: 0;
+	left: 50%;
+}
+.open #nav-toggle span:nth-child(3) {
+	top: 10px;
+	-webkit-transform: rotate(-215deg);
+	-moz-transform: rotate(-215deg);
+	transform: rotate(-215deg);
+}
+
+/* #global-nav スライドアニメーション */
+.open #global-nav {
+	/* #global-nav top + #mobile-head height */
+	-moz-transform: translateY(556px);
+	-webkit-transform: translateY(556px);
+	transform: translateY(556px);
+}
+
+
+}
+
+@media screen and (min-width: 1200px) {
+#top-head {
+	display: none;
+}
+}
+
+
+/*ACCORDION*/
+div.accordion {
+	width: 100%;
+}
+div.accordion > ul > li > a {
+	display: block;
+	color: #990099;
+	font-size: 10px;
+	text-decoration: none;
+	background-color: rgba(255,255,255,0.8);
+	border-bottom: 1px solid #ccc;
+	cursor: pointer;
+	padding: 5px 10px;
+	position: relative;
+	font-family: 'Montserrat', sans-serif;	
+}
+div.accordion > ul > li > a:hover{
+	background-color: rgba(255,255,255,0.8);
+}
+div.accordion > ul > li > a:after, div.accordion > ul > li > a.active:after{
+	font-size: 10px;
+	position: absolute;
+	right: 12px;
+	top: 16px;
+	color: #990099;
+}
+div.accordion > ul > li > a:after{
+	content: "";
+}
+div.accordion > ul > li > a.active:after{
+	content: "";
+}
+div.accordion > ul > li > ul {
+	display: none;
+}
+div.accordion > ul > li > ul > li > a{
+	display: block;
+	color: #990099;
+	font-size: 10px;
+	background-color: rgba(0,0,0,0.8);
+	border-bottom: 1px solid #CCC;
+	padding: 5px 10px;
+	position: relative;
+}
+div.accordion > ul > li > ul > li > a:hover{
+	background-color: #CCC;
+}
+
+/*スマホ版メニュー*/
+.header_space {
+	margin-top: 41px;
+}
+@media screen and (min-width: 1200px) {
+.header_space_img {
+	display: none;
+}
+.header_space_sp {
+	display: none;
+}
+}
+@media screen and (max-width: 1200px) {
+.header_space_sp {
+	margin-top: 51px;
+}
+.header_space {
+	margin-top: 0px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+    left:0;
+	z-index: 1;
+	background: #FFF;
+	height: 40px;
+	transition: .7s;	
+}
+.header_space_img {
+	padding: 0;	
+}
+.header_space_img img {
+	height: 20px;
+	padding-top: 10px;
+	text-align: center;	
+}
+}
+
+
+/*PC版　グローバルメニュー*/
+#global {
+	margin: auto;
+	z-index: 10;
+	min-width: 1040px;
+	background-color: rgba(255,255,255,1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+	border-bottom: 1px #cccccc solid;
+	transition: .7s;			
+}
+
+.menu {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu_space_1 {
+	margin-right: 20px;
+}
+
+.menu img {
+	width: 150px;
+	padding-top: 15px;
+	margin-right: 100px;
+	float: left;
+}
+
+.menu > li {
+    float: left;
+    width: 9.8%;
+    height: 50px;
+    line-height: 50px;
+	list-style: none;
+	text-align: center;
+	font-size: 10px;
+	letter-spacing: 3px;
+}
+.menu > li:hover {
+	background-color: rgba(255,255,255,0.6);
+}
+
+.menu > li a {
+    display: block;
+    color: #000;
+	text-decoration: none;
+	letter-spacing: 2px;
+	font-family: 'Montserrat', sans-serif;	
+}
+
+.menu > li a:hover {
+    color: #d28d2b;
+}
+
+ul.menu__second-level {
+    visibility: hidden;
+    opacity: 0;
+    z-index: 10;
+}
+
+ul.menu__third-level {
+    visibility: hidden;
+    opacity: 0;
+}
+
+ul.menu__fourth-level {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.menu > li:hover {
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+.menu__second-level li {
+    border-top: 1px solid #666;
+	background-color: rgba(255,255,255,0.8);
+	text-align: center;
+	color: #000;
+	font-size: 10px;
+	letter-spacing: 3px;
+	text-decoration: none;			
+}
+
+.menu__third-level li {
+    border-top: 1px solid #000;
+}
+
+.menu__second-level li a:hover {
+    background: #fff;
+	background-color: rgba(255,255,255,0.8);
+}
+
+.menu__third-level li a:hover {
+    background: #fff;
+}
+
+.menu__fourth-level li a:hover {
+    background: #fff;
+}
+.menu > li.menu__single {
+    position: relative;
+}
+
+li.menu__single ul.menu__second-level {
+    overflow: hidden;
+    top: 40px;
+    width: 100%;
+  -moz-transition: .2s;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  -ms-transition: .2s;
+  transition: .2s;
+    text-align: left;
+}
+
+li.menu__single:hover ul.menu__second-level {
+    top: 50px;
+    visibility: visible;
+    opacity: 1;
+	list-style: none;
+}
+
+/* 下矢印 */
+.init-bottom:after {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin: 0 0 0 15px;
+    border-right: 2px solid #666;
+    border-bottom: 2px solid #666;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* floatクリア */
+.menu:before,
+.menu:after {
+    content: " ";
+    display: table;
+}
+
+.menu:after {
+    clear: both;
+}
+
+.menu {
+    *zoom: 1;
+}
+
+@media screen and (max-width: 1200px) {
+#global {
+	display:none;
+}	
+}
+
+/*-----------------------------------------------------------------
+サイドバー
+-----------------------------------------------------------------*/
+
+#page-top {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	font-size: 80%;
+	z-index: 10;
+}
+#page-top a {
+	text-decoration: none;
+	color: #fff;
+	width: 80px;
+	height: 60px;
+	padding: 0px 0;
+	padding-top: 30px;
+	text-align: center;
+	display: block;
+	opacity: 0.6;	
+	
+}
+.arrow{
+  position: relative;
+  display: inline-block;
+  padding-right: 20px;
+}
+.arrow::before{
+  content: '';
+  width: 40px;
+  height: 40px;
+  border: 0px;
+  border-top: solid 2px #999999;
+  border-right: solid 2px #999999;
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -4px;
+}
+#page-top a:hover {
+	text-decoration: none;
+}
+
+
+@media screen and (max-width: 1200px) {
+
+#page-top {
+	position: fixed;
+	bottom: 30px;
+	right: 10px;
+	font-size: 80%;
+	z-index: 10;
+
+}
+#page-top a {
+	text-decoration: none;
+	color: #fff;
+	width: 60px;
+	height: 50px;
+	padding: 0px 0;
+	padding-top: 10px;
+	text-align: center;
+	display: block;
+	opacity: 0.6;	
+	
+}
+.arrow{
+  position: relative;
+  display: inline-block;
+  padding-right: 10px;
+}
+.arrow::before{
+  content: '';
+  width: 30px;
+  height: 30px;
+  border: 0px;
+  border-top: solid 1px #999999;
+  border-right: solid 1px #999999;
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: 15px;
+}
+#page-top a:hover {
+	text-decoration: none;
+}	
+	
+}
+
+/*-----------------------------------------------------------------
+フレキシブルボックス
+-----------------------------------------------------------------*/
+
+.wrapper {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+	flex-direction: row;
+    flex-wrap: wrap;	
+	width: 100%;	
+}
+.wrapper_2 {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+	flex-direction: row;
+    flex-wrap: wrap;
+	-webkit-justify-content: center;
+	justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;	
+	width: 100%;	
+}
+
+
+.element_top {
+	width: 25%;
+	padding: 3px;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+
+@media screen and (max-width: 1200px) {
+
+.element_top {
+	width: 100%;
+	padding: 3px;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+
+}
+
+/*-----------------------------------------------------------------
+フォーム構成
+-----------------------------------------------------------------*/
+
+/*まず、フォーム全体の囲み罫や角丸を指定*/
+form#form {
+	color: #666;
+	padding: 7px;
+	margin: 0 auto;
+	border: 3px solid #fff;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	width: 80%;
+}
+
+::-webkit-input-placeholder {
+  color: #ccc;
+}
+::-moz-placeholder {
+  color: #ccc;
+}
+:-ms-input-placeholder {
+  color: #ccc;
+}
+
+
+.blog_1 {
+	color: #CCC;
+}
+.blog_2 {
+	margin-top: 3px;
+	color: #F99;
+}
+
+
+/*<p>に背景や角丸を指定*/
+form#form p {
+	margin-bottom: 10px;
+	padding:10px;
+	font-size: 100%;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+/* span要素をブロック化しフロートでフォーム部品と横に並べる*/
+form#form p span {
+	width: 100%;
+	margin-bottom: 10px;
+	display:block;
+	float:left;
+	font-size: 100%;
+	font-weight: 600;	
+}
+
+/*「:after」で <p>の末尾でフロートをクリア*/
+form#form p:after {
+	content:".";
+	display:block;
+	height:0;
+	visibility:hidden;
+	clear:both;     /*←フロートをクリア*/
+}
+
+/* テキスト入力部品の見た目を統一する */
+form#form p label .txtfiled, form#form p select {
+	padding: 10px 10px;
+	width: 95%;
+	line-height: 1.7em;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	margin-left: 0;
+	margin-right: 0;
+	color: #666;
+	border: solid 1px #ccc;
+	background: #fff;
+    -webkit-box-shadow: 1px 1px 1px #fff;
+    -moz-box-shadow: 1px 1px 1px #fff;
+	box-shadow: 1px 1px 1px #fff;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+form#form p select {
+	/*selectは250では大きすぎるので*/
+	padding: 10px 10px;	
+	width: 20%;
+	font-size: 16px;
+	line-height: 1.7em;
+	letter-spacing: 2px;
+	border: solid 1px #ccc;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;	
+}
+
+input[type="date"] ,
+input[type="time"] {
+	padding: 10px 10px;
+	width: 190px;	
+	color: #666;
+	border: solid 1px #ccc;
+	background: #fff;
+	font-size: 16px;
+	line-height: 1.7em;
+	letter-spacing: 2px;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;		
+}
+input[type="checkbox"] {
+	margin-left: 15px;
+	font-size: 80%;
+}
+
+/*写真削除　チェック*/
+.sakujyo_check {
+	padding-top: 20px;
+	font-size: 80%;
+	color: #333;	
+}
+
+
+/*チェックボックス、ラジオボタンのブロックの指定*/
+form#form p span.check, form#form p span.radio {
+	display:block;
+	width:300px;
+}
+/*チェックボックス、ラジオボタンの label要素を横に並べる*/
+form#form p span.check label, form#form p span.radio label {
+	margin-right: 2em;
+	display: block;
+	float: left;
+	width: 9em;
+}
+/*ラジオボタンの label要素の幅は9emでは大きすぎるので調整*/
+form#form p span.radio label {
+	width: 4em;
+}
+/*「:after」で <span>の末尾でフロートをクリア*/
+form#form p span.check:after, form#form p span.radio:after {
+	content:".";
+	display:block;
+	height:0;
+	visibility:hidden;
+	clear:both;     /*←フロートをクリア*/
+}
+
+/*input要素とテキストがくっつかないように右にマージンを少し*/
+form#form p span.check label input, form#form p span.radio label input {
+	margin-right:0.5em;
+}
+/*チェックボックス、ラジオボタンの label要素にロールオーバー時の変化を指定する*/
+form#form p span.check label:hover , form#form p span.radio label:hover{
+	background : #C08B9B;
+	color: #fff;
+	font-weight:bold;
+}
+
+.input_area {
+	padding-top: 10px;
+}
+
+/*送信・リセットボタンの体裁を指定（[type="○○"]で属性の値でセレクト）*/
+form#form p input[type="submit"] ,
+form#form p input[type="button"] ,
+form#form p input[type="reset"] {
+	cursor: pointer;     /*←これでカーソルを指先型に変化させる*/
+	font-size: 90%;
+	width: 100%;
+    zoom: 1;
+}
+
+.formbtn {
+	display: block;
+    cursor: pointer;
+	font-size: 90%;
+	letter-spacing: 3px;
+	font-weight: 600;
+	width: 100%;
+	padding: 12px 10px;
+	margin-right: 0;
+	margin-left: 0;
+	margin-bottom: 20px;
+	color: #fff;
+    border: 1px solid #bbb;
+    background: #CCC;
+    background: -moz-linear-gradient(top, #CCC, #CCC);
+    background: -webkit-linear-gradient(top, #CCC, #CCC);
+    background: linear-gradient(#CCC, #CCC);
+    filter:progid:DXImageTransform.Microsoft.gradient
+        (startColorstr=#CCC,endColorstr=#CCC);
+    zoom: 1;
+	box-sizing: border-box;	
+}
+.formbtn:after {
+    content: '';
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    width: 7px;
+    height: 7px;	
+    vertical-align: middle;
+    margin-left: 5px;
+    border: #ffffff 1px solid;
+    border-top: none;
+    border-left: none;
+    transform: rotate(-45deg);
+	float: right;
+}
+.formbtn:hover {
+	opacity: 0.5;
+	font-size: 100%;
+}
+
+.formbtn_2 {
+	font-size: 100%;
+	color: #FF6666;
+	font-weight: 800;
+	text-align: center;
+	padding: 20px 0px;
+	display: block;
+	text-decoration: none;
+	cursor: pointer;
+	white-space: nowrap;
+	border: 1px #FF6666 solid;
+	border-radius: 3px;
+	width: 100%;
+	letter-spacing: 1px;
+	background: #FFF;
+}
+.formbtn_2:hover {
+	opacity: 0.5;
+}
+
+
+form#form p input[type="submit"]:hover ,
+form#form p input[type="button"]:hover ,
+form#form p input[type="reset"]:hover {
+/*↓ここではロールオーバー時の透明度を変更。もちろんグラデーションを指定してもOK*/
+	opacity: 0.5;
+}
+
+
+
+/*フォーム　体験用*/
+
+form#form_2 {
+	color: #666;
+	padding: 7px;
+	margin: 0 auto;
+	border: 3px solid #fff;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	width: 300px;
+}
+
+/*<p>に背景や角丸を指定*/
+form#form_2 p {
+	margin-bottom: 10px;
+	padding:10px;
+	font-size: 100%;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+/* span要素をブロック化しフロートでフォーム部品と横に並べる*/
+form#form_2 p span {
+	width: 100%;
+	margin-bottom: 10px;
+	display:block;
+	float:left;
+	font-size: 80%;
+}
+
+/*「:after」で <p>の末尾でフロートをクリア*/
+form#form_2 p:after {
+	content:".";
+	display:block;
+	height:0;
+	visibility:hidden;
+	clear:both;     /*←フロートをクリア*/
+}
+
+/* テキスト入力部品の見た目を統一する */
+form#form_2 p label .txtfiled, form#form_2 p select {
+	padding: 10px 10px;
+	width: 95%;
+	line-height: 1.7em;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+	color: #666;
+	border: solid 1px #ccc;
+	background: #fff;
+    -webkit-box-shadow: 1px 1px 1px #fff;
+    -moz-box-shadow: 1px 1px 1px #fff;
+	box-shadow: 1px 1px 1px #fff;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+form#form_2 p select {
+	/*selectは250では大きすぎるので*/
+	padding: 10px 10px;	
+	width: 100%;
+	font-size: 16px;
+	line-height: 1.7em;
+	letter-spacing: 2px;
+	border: solid 1px #ccc;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;	
+}
+
+input[type="date"] ,
+input[type="time"] {
+	padding: 10px 10px;
+	width: 190px;	
+	color: #666;
+	border: solid 1px #ccc;
+	background: #fff;
+	font-size: 16px;
+	line-height: 1.7em;
+	letter-spacing: 2px;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;		
+}
+
+/*チェックボックス、ラジオボタンのブロックの指定*/
+form#form_2 p span.check, form#form_2 p span.radio {
+	display:block;
+	width:300px;
+}
+/*チェックボックス、ラジオボタンの label要素を横に並べる*/
+form#form_2 p span.check label, form#form_2 p span.radio label {
+	margin-right: 2em;
+	display: block;
+	float: left;
+	width: 9em;
+}
+/*ラジオボタンの label要素の幅は9emでは大きすぎるので調整*/
+form#form_2 p span.radio label {
+	width: 4em;
+}
+/*「:after」で <span>の末尾でフロートをクリア*/
+form#form_2 p span.check:after, form#form_2 p span.radio:after {
+	content:".";
+	display:block;
+	height:0;
+	visibility:hidden;
+	clear:both;     /*←フロートをクリア*/
+}
+
+/*input要素とテキストがくっつかないように右にマージンを少し*/
+form#form_2 p span.check label input, form#form_2 p span.radio label input {
+	margin-right:0.5em;
+}
+/*チェックボックス、ラジオボタンの label要素にロールオーバー時の変化を指定する*/
+form#form_2 p span.check label:hover , form#form_2 p span.radio label:hover{
+	background : #C08B9B;
+	color: #fff;
+	font-weight:bold;
+}
+
+.input_area {
+	padding-top: 10px;
+	width: 95%;
+}
+
+/*送信・リセットボタンの体裁を指定（[type="○○"]で属性の値でセレクト）*/
+form#form_2 p input[type="submit"] ,
+form#form_2 p input[type="button"] ,
+form#form_2 p input[type="reset"] {
+	cursor: pointer;     /*←これでカーソルを指先型に変化させる*/
+	font-size: 90%;
+	width: 100%;
+    zoom: 1;
+}
+
+.formbtn {
+	display: block;
+    cursor: pointer;
+	font-size: 90%;
+	letter-spacing: 3px;
+	font-weight: 600;
+	width: 100%;
+	padding: 12px 10px;
+	margin-right: 0;
+	margin-left: 0;
+	margin-bottom: 20px;
+	color: #fff;
+    border: 1px solid #bbb;
+    background: #CCC;
+    background: -moz-linear-gradient(top, #CCC, #CCC);
+    background: -webkit-linear-gradient(top, #CCC, #CCC);
+    background: linear-gradient(#CCC, #CCC);
+    filter:progid:DXImageTransform.Microsoft.gradient
+        (startColorstr=#CCC,endColorstr=#CCC);
+    zoom: 1;
+	box-sizing: border-box;	
+}
+.formbtn:after {
+    content: '';
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    width: 7px;
+    height: 7px;	
+    vertical-align: middle;
+    margin-left: 5px;
+    border: #ffffff 1px solid;
+    border-top: none;
+    border-left: none;
+    transform: rotate(-45deg);
+	float: right;
+}
+.formbtn:hover {
+	opacity: 0.5;
+	font-size: 100%;
+}
+
+.formbtn_2 {
+	font-size: 100%;
+	color: #FF6666;
+	font-weight: 800;
+	text-align: center;
+	padding: 20px 0px;
+	display: block;
+	text-decoration: none;
+	cursor: pointer;
+	white-space: nowrap;
+	border: 1px #FF6666 solid;
+	border-radius: 3px;
+	width: 100%;
+	letter-spacing: 1px;
+	background: #FFF;
+}
+.formbtn_2:hover {
+	opacity: 0.5;
+}
+
+
+form#form_2 p input[type="submit"]:hover ,
+form#form_2 p input[type="button"]:hover ,
+form#form_2 p input[type="reset"]:hover {
+/*↓ここではロールオーバー時の透明度を変更。もちろんグラデーションを指定してもOK*/
+	opacity: 0.5;
+}
+
+
+/*フォームスライダー設定*/
+
+/*まず、フォーム全体の囲み罫や角丸を指定*/
+form#form_3 {
+	color: #666;
+	padding: 7px;
+	margin: 0 auto;
+	border: 3px solid #fff;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	width: 80%;
+}
+::-webkit-input-placeholder {
+  color: #ccc;
+}
+::-moz-placeholder {
+  color: #ccc;
+}
+:-ms-input-placeholder {
+  color: #ccc;
+}
+
+/*<p>に背景や角丸を指定*/
+form#form_3 p {
+	margin-bottom: 0px;
+	padding:0px;
+	font-size: 100%;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+/* span要素をブロック化しフロートでフォーム部品と横に並べる*/
+form#form_3 p span {
+	width: 100%;
+	margin-bottom: 10px;
+	display:block;
+	float:left;
+	font-size: 100%;
+	font-weight: 600;	
+}
+
+/*「:after」で <p>の末尾でフロートをクリア*/
+form#form_3 p:after {
+	content:".";
+	display:block;
+	height:0;
+	visibility:hidden;
+	clear:both;     /*←フロートをクリア*/
+}
+
+/* テキスト入力部品の見た目を統一する */
+form#form_3 p label .txtfiled, form#form p select {
+	padding: 10px 10px;
+	width: 95%;
+	line-height: 1.7em;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	margin-left: 0;
+	margin-right: 0;
+	color: #666;
+	border: solid 1px #ccc;
+	background: #fff;
+    -webkit-box-shadow: 1px 1px 1px #fff;
+    -moz-box-shadow: 1px 1px 1px #fff;
+	box-shadow: 1px 1px 1px #fff;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+
+@media screen and (max-width: 1200px) {
+
+/*まず、フォーム全体の囲み罫や角丸を指定*/
+form#form {
+	color: #666;
+	padding: 7px 0px;
+	margin-bottom: 15px;
+	border: 3px solid #fff;
+	/*↓ボックスの角丸の指定*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	width: 90%;
+}
+
+/*<p>に背景や角丸を指定*/
+form#form p {
+	margin-bottom: 15px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	font-size: 100%;
+	/*↓ボックスの角丸の指定*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+/* span要素をブロック化しフロートでフォーム部品と横に並べる*/
+form#form p span {
+	width: 100%;
+	margin-bottom: 10px;
+	display:block;
+	float: left;
+	font-size: 90%;
+	font-weight: 600;
+}
+
+/*「:after」で <p>の末尾でフロートをクリア*/
+form#form p:after {
+	content:".";
+	display:block;
+	height:0;
+	visibility:hidden;
+	clear:both;     /*←フロートをクリア*/
+}
+
+/* テキスト入力部品の見た目を統一する */
+form#form p label .txtfiled {
+	padding: 7px 5px;
+	width: 97%;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	margin-left: 0;
+	margin-right: 10px;
+	color:#666;
+	border: solid 1px #ccc;
+	background: #fff;
+	-webkit-appearance: none;	
+	/*シャドウをつける。*/
+    -webkit-box-shadow: 1px 1px 1px #fff;
+    -moz-box-shadow: 1px 1px 1px #fff;
+	box-shadow: 1px 1px 1px #fff;
+	/*角丸にする*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+form#form p select {
+	/*selectは250では大きすぎるので*/
+	width: 50%;
+	font-size: 16px;
+	line-height: 1.7em;
+	letter-spacing: 2px;
+	border: solid 1px #ccc;	
+	padding: 7px 5px;
+	/*角丸にする*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;	
+}
+
+input[type="date"] ,
+input[type="time"] {
+	padding: 7px 5px;
+	width: 200px;	
+	color: #666;
+	border: solid 1px #ccc;
+	background: #fff;
+	font-size: 16px;
+	line-height: 1.7em;
+	letter-spacing: 2px;
+	/*角丸にする*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+/*チェックボックス、ラジオボタンのブロックの指定*/
+form#form p span.check, form#form p span.radio {
+	display:block;
+	width:300px;
+}
+/*チェックボックス、ラジオボタンの label要素を横に並べる*/
+form#form p span.check label, form#form p span.radio label {
+	margin-right: 2em;
+	display: block;
+	float: left;
+	width: 9em;
+}
+/*ラジオボタンの label要素の幅は9emでは大きすぎるので調整*/
+form#form p span.radio label {
+	width: 4em;
+}
+/*「:after」で <span>の末尾でフロートをクリア*/
+form#form p span.check:after, form#form p span.radio:after {
+	content:".";
+	display:block;
+	height:0;
+	visibility:hidden;
+	clear:both;     /*←フロートをクリア*/
+}
+
+/*input要素とテキストがくっつかないように右にマージンを少し*/
+form#form p span.check label input, form#form p span.radio label input {
+	margin-right:0.5em;
+}
+/*チェックボックス、ラジオボタンの label要素にロールオーバー時の変化を指定する*/
+form#form p span.check label:hover , form#form p span.radio label:hover{
+	background : #C08B9B;
+	color: #fff;
+	font-weight:bold;
+}
+
+/*送信・リセットボタンの体裁を指定（[type="○○"]で属性の値でセレクト）*/
+form#form p input[type="submit"] ,
+form#form p input[type="button"] ,
+form#form p input[type="reset"] {
+	cursor: pointer;     /*←これでカーソルを指先型に変化させる*/
+	font-size: 90%;
+	font-weight: 600;	
+	width: 100%;	
+}
+
+.formbtn {
+    cursor: pointer;
+	font-size: 100%;
+	letter-spacing: 3px;
+	font-weight: 600;
+	width: 100%;
+	padding: 12px 10px;
+	margin-bottom: 20px;
+	color: #fff;
+    border: 1px solid #bbb;
+    background: #CCC;
+    background: -moz-linear-gradient(top, #CCC, #CCC);
+    background: -webkit-linear-gradient(top, #CCC, #CCC);
+    background: linear-gradient(#CCC, #CCC);
+    zoom: 1;
+	box-sizing: border-box;	
+}
+.formbtn:after {
+    content: '';
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    width: 7px;
+    height: 7px;
+    vertical-align: middle;
+	margin-right: 5px;
+    border: #ffffff 1px solid;
+    border-top: none;
+    border-left: none;
+    transform: rotate(-45deg);
+	float: right;
+}
+.formbtn:hover {
+	opacity: 0.5;
+	font-size: 100%;
+}
+
+.formbtn_2 {
+	font-size: 100%;
+	color: #FF6666;
+	font-weight: 800;
+	text-align: center;
+	padding: 20px 0px;
+	display: block;
+	text-decoration: none;
+	cursor: pointer;
+	white-space: nowrap;
+	border: 1px #FF6666 solid;
+	border-radius: 3px;
+	width: 100%;
+	letter-spacing: 1px;
+	background: #FFF;
+}
+.formbtn_2:hover {
+	opacity: 0.5;
+}
+
+form#form p input[type="submit"]:hover ,
+form#form p input[type="button"]:hover ,
+form#form p input[type="reset"]:hover {
+/*↓ここではロールオーバー時の透明度を変更。もちろんグラデーションを指定してもOK*/
+	opacity: 0.5;
+	font-size: 100%;
+}
+
+
+/*フォーム　体験用*/
+form#form_2 {
+	color: #666;
+	padding: 7px 0px;
+	margin-bottom: 15px;
+	border: 3px solid #fff;
+	/*↓ボックスの角丸の指定*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	width: 90%;
+}
+
+/*<p>に背景や角丸を指定*/
+form#form_2 p {
+	margin-bottom: 15px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	font-size: 100%;
+	/*↓ボックスの角丸の指定*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+/* span要素をブロック化しフロートでフォーム部品と横に並べる*/
+form#form_2 p span {
+	width: 100%;
+	margin-bottom: 10px;
+	display:block;
+	float: left;
+	font-size: 100%;
+}
+
+/*「:after」で <p>の末尾でフロートをクリア*/
+form#form_2 p:after {
+	content:".";
+	display:block;
+	height:0;
+	visibility:hidden;
+	clear:both;     /*←フロートをクリア*/
+}
+
+/* テキスト入力部品の見た目を統一する */
+form#form_2 p label .txtfiled {
+	padding: 7px 5px;
+	width: 97%;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	margin-left: 0;
+	margin-right: 10px;
+	color:#666;
+	border: solid 1px #ccc;
+	background: #fff;
+	-webkit-appearance: none;	
+	/*シャドウをつける。*/
+    -webkit-box-shadow: 1px 1px 1px #fff;
+    -moz-box-shadow: 1px 1px 1px #fff;
+	box-shadow: 1px 1px 1px #fff;
+	/*角丸にする*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+form#form_2 p select {
+	/*selectは250では大きすぎるので*/
+	width: 100%;
+	font-size: 16px;
+	line-height: 1.7em;
+	letter-spacing: 2px;
+	border: solid 1px #ccc;	
+	padding: 7px 5px;
+	/*角丸にする*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;	
+}
+
+input[type="date"] ,
+input[type="time"] {
+	padding: 7px 5px;
+	width: 200px;	
+	color: #666;
+	border: solid 1px #ccc;
+	background: #fff;
+	font-size: 16px;
+	line-height: 1.7em;
+	letter-spacing: 2px;
+	/*角丸にする*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+/*チェックボックス、ラジオボタンのブロックの指定*/
+form#form_2 p span.check, form#form_2 p span.radio {
+	display:block;
+	width:300px;
+}
+/*チェックボックス、ラジオボタンの label要素を横に並べる*/
+form#form_2 p span.check label, form#form_2 p span.radio label {
+	margin-right: 2em;
+	display: block;
+	float: left;
+	width: 9em;
+}
+/*ラジオボタンの label要素の幅は9emでは大きすぎるので調整*/
+form#form_2 p span.radio label {
+	width: 4em;
+}
+/*「:after」で <span>の末尾でフロートをクリア*/
+form#form_2 p span.check:after, form#form_2 p span.radio:after {
+	content:".";
+	display:block;
+	height:0;
+	visibility:hidden;
+	clear:both;     /*←フロートをクリア*/
+}
+
+/*input要素とテキストがくっつかないように右にマージンを少し*/
+form#form_2 p span.check label input, form#form_2 p span.radio label input {
+	margin-right:0.5em;
+}
+/*チェックボックス、ラジオボタンの label要素にロールオーバー時の変化を指定する*/
+form#form_2 p span.check label:hover , form#form_2 p span.radio label:hover{
+	background : #C08B9B;
+	color: #fff;
+	font-weight:bold;
+}
+
+/*送信・リセットボタンの体裁を指定（[type="○○"]で属性の値でセレクト）*/
+form#form_2 p input[type="submit"] ,
+form#form_2 p input[type="button"] ,
+form#form_2 p input[type="reset"] {
+	cursor: pointer;     /*←これでカーソルを指先型に変化させる*/
+	font-size: 90%;
+	font-weight: 600;	
+	width: 100%;	
+}
+
+.formbtn {
+    cursor: pointer;
+	font-size: 100%;
+	letter-spacing: 3px;
+	font-weight: 600;
+	width: 100%;
+	padding: 12px 10px;
+	margin-bottom: 20px;
+	color: #fff;
+    border: 1px solid #bbb;
+    background: #CCC;
+    background: -moz-linear-gradient(top, #CCC, #CCC);
+    background: -webkit-linear-gradient(top, #CCC, #CCC);
+    background: linear-gradient(#CCC, #CCC);
+    zoom: 1;
+	box-sizing: border-box;	
+}
+.formbtn:after {
+    content: '';
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    width: 7px;
+    height: 7px;
+    vertical-align: middle;
+	margin-right: 5px;
+    border: #ffffff 1px solid;
+    border-top: none;
+    border-left: none;
+    transform: rotate(-45deg);
+	float: right;
+}
+.formbtn:hover {
+	opacity: 0.5;
+	font-size: 100%;
+}
+
+.formbtn_2 {
+	font-size: 100%;
+	color: #FF6666;
+	font-weight: 800;
+	text-align: center;
+	padding: 20px 0px;
+	display: block;
+	text-decoration: none;
+	cursor: pointer;
+	white-space: nowrap;
+	border: 1px #FF6666 solid;
+	border-radius: 3px;
+	width: 100%;
+	letter-spacing: 1px;
+	background: #FFF;
+}
+.formbtn_2:hover {
+	opacity: 0.5;
+}
+
+form#form_2 p input[type="submit"]:hover ,
+form#form_2 p input[type="button"]:hover ,
+form#form_2 p input[type="reset"]:hover {
+/*↓ここではロールオーバー時の透明度を変更。もちろんグラデーションを指定してもOK*/
+	opacity: 0.5;
+	font-size: 100%;
+}
+
+/*フォーム設定*/
+/*まず、フォーム全体の囲み罫や角丸を指定*/
+form#form_3 {
+	color: #666;
+	padding: 7px 0px;
+	margin-bottom: 15px;
+	border: 3px solid #fff;
+	/*↓ボックスの角丸の指定*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	width: 90%;
+}
+
+/*<p>に背景や角丸を指定*/
+form#form_3 p {
+	margin-bottom: 0px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	font-size: 100%;
+	/*↓ボックスの角丸の指定*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+/* span要素をブロック化しフロートでフォーム部品と横に並べる*/
+form#form_3 p span {
+	width: 100%;
+	margin-bottom: 10px;
+	display:block;
+	float: left;
+	font-size: 90%;
+	font-weight: 600;
+}
+
+/*「:after」で <p>の末尾でフロートをクリア*/
+form#form p:after {
+	content:".";
+	display:block;
+	height:0;
+	visibility:hidden;
+	clear:both;     /*←フロートをクリア*/
+}
+
+/* テキスト入力部品の見た目を統一する */
+form#form_3 p label .txtfiled {
+	padding: 3px 5px;
+	width: 100%;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	margin-left: 0;
+	margin-right: 10px;
+	color:#666;
+	border: solid 1px #ccc;
+	background: #fff;
+	-webkit-appearance: none;	
+	/*シャドウをつける。*/
+    -webkit-box-shadow: 1px 1px 1px #fff;
+    -moz-box-shadow: 1px 1px 1px #fff;
+	box-shadow: 1px 1px 1px #fff;
+	/*角丸にする*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+	
+}
+
+
+
+/*メールフォーム　確認ページ*/
+
+.mail_kakunin_1 {
+	font-size: 14px;
+	line-height: 1.5em;
+	margin: 20px 0px;
+}
+
+.mail_kakunin_2 {
+	font-size: 14px;
+	line-height: 1.5em;
+	margin: 20px 0px;
+	text-align: center;
+}
+
+
+/*送信・リセットボタンの体裁を指定（[type="○○"]で属性の値でセレクト）*/
+form#form_kakunin p input[type="submit"] ,
+form#form_kakunin p input[type="button"] {
+	cursor: pointer;     /*←これでカーソルを指先型に変化させる*/
+	font-size: 20px;
+	font-weight: 700;
+	width: 200px;
+	padding: 10px 10px;
+	margin-right: 0.5em;
+	color: #fff;
+    border: 1px solid #bbb;
+    background: #C08B9B;
+/*↓背景グラデーションの指定です*/
+    background: -moz-linear-gradient(top, #E7D6DB, #C08B9B);
+    background: -webkit-linear-gradient(top, #E7D6DB, #C08B9B);
+    background: linear-gradient(#E7D6DB, #C08B9B);
+/*↓以下、ボックスの角丸、シャドウの指定*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+    -webkit-box-shadow: 1px 1px 1px #fff;
+    -moz-box-shadow: 1px 1px 1px #fff;
+	box-shadow: 1px 1px 1px #fff;
+/* IE用 */
+    filter:progid:DXImageTransform.Microsoft.gradient
+        (startColorstr=#E7D6DB,endColorstr=#C08B9B);
+    zoom: 1;
+}
+
+form#form_kakunin p input[type="submit"]:hover ,
+form#form_kakunin p input[type="button"]:hover {
+/*↓ここではロールオーバー時の透明度を変更。もちろんグラデーションを指定してもOK*/
+	opacity: 0.8;
+	font-size: 20px;
+}
+
+@media screen and (max-width: 640px) {
+/*送信・リセットボタンの体裁を指定（[type="○○"]で属性の値でセレクト）*/
+form#form_kakunin p input[type="submit"] ,
+form#form_kakunin p input[type="button"]{
+	cursor: pointer;     /*←これでカーソルを指先型に変化させる*/
+	font-size: 16px;
+	font-weight: 700;
+	width: 140px;
+	padding: 10px 10px;
+	margin-right: 5px;
+	color: #fff;
+    border: 1px solid #bbb;
+    background: #C08B9B;
+/*↓背景グラデーションの指定です*/
+    background: -moz-linear-gradient(top, #E7D6DB, #C08B9B);
+    background: -webkit-linear-gradient(top, #E7D6DB, #C08B9B);
+    background: linear-gradient(#E7D6DB, #C08B9B);
+/*↓以下、ボックスの角丸、シャドウの指定*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+    -webkit-box-shadow: 1px 1px 1px #fff;
+    -moz-box-shadow: 1px 1px 1px #fff;
+	box-shadow: 1px 1px 1px #fff;
+/* IE用 */
+    filter:progid:DXImageTransform.Microsoft.gradient
+        (startColorstr=#E7D6DB,endColorstr=#C08B9B);
+    zoom: 1;
+}
+
+form#form_kakunin p input[type="submit"] :hover ,
+form#form_kakunin p input[type="button"]:hover {
+/*↓ここではロールオーバー時の透明度を変更。もちろんグラデーションを指定してもOK*/
+	opacity: 0.8;
+	font-size: 20px;
+}
+
+}
+
+
+/*-----------------------------------------------------------------
+フッター
+-----------------------------------------------------------------*/
+
+#footer {
+	background-color: rgba(237,227,186,0.5);
+	text-align: center;
+	color: #666;
+	font-size: 60%;	
+	padding-top: 50px;
+	padding-bottom: 50px;
+	margin-top: 30px;
+}
+.footer_in {
+	
+	width: 1200px;
+	margin: 0 auto;
+}
+
+@media screen and (max-width: 1200px) {
+.footer_in {
+	width: 100%;
+	margin: 0 auto;
+}
+}
+
+
+/*-----------------------------------------------------------------
+各ページ 共通部分
+-----------------------------------------------------------------*/
+
+#page_base {
+	width: 100%;
+	margin: 0 auto;
+}
+#page_base h2 {
+	text-align: center;
+	font-size: 180%;
+	letter-spacing: 5px;
+	font-weight: 600;
+	padding: 80px 0px;
+	margin-bottom: 20px;
+	background: rgba(255,240,240,0.7);
+}
+
+#page_base h3 {
+	text-align: center;
+	font-size: 100%;
+	font-weight: 600px;
+	color: #000;
+	margin-bottom: 20px;
+}
+
+.page_base_in {
+	width: 1200px;
+	margin: 0 auto;
+	padding-bottom: 50px;
+}
+
+
+.page_base_box_top {
+	padding-top: 10px;
+	padding-bottom: 20px;
+	margin-bottom: 40px;
+	border-bottom: 1px #999999 solid;
+}
+.page_base_box {
+	padding-bottom: 40px;
+	margin-bottom: 40px;
+	border-bottom: 1px #999999 solid;
+}
+.page_base_box_2 {
+	padding-bottom: 40px;
+	margin-bottom: 40px;
+}
+
+
+
+@media screen and (max-width: 1200px) {
+
+#page_base {
+	width: 100%;
+	margin: 0 auto;
+}
+#page_base h2 {
+	text-align: center;
+	font-size: 140%;
+	letter-spacing: 5px;
+	font-weight: 600;
+	padding: 60px 0px;
+	margin-bottom: 20px;	
+	background: rgba(255,240,240,0.7);		
+}
+
+#page_base h3 {
+	text-align: center;
+	font-size: 100%;
+	font-weight: 600px;
+	color: #000;
+	margin-bottom: 20px;
+}
+
+.page_base_in {
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 50px;
+	padding-left: 10px;
+	padding-right: 10px;
+	box-sizing: border-box;
+}
+
+
+}
+
+
+
+
+/*-----------------------------------------------------------------
+トップページ
+-----------------------------------------------------------------*/
+
+.top_works_button {
+	width: 300px;
+	margin: 0 auto;
+}
+
+.works_list {
+	font-size: 90%;
+	color: #000;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.top_works_box {
+	padding: 10px;
+	box-sizing: border-box;
+}
+.top_works_title {
+	font-size: 70%;
+	font-weight: 600;
+	padding-top: 5px;
+	padding-bottom: 30px;
+	text-align: left;
+	line-height: 1.5em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.top_works_box_wrap {
+	position: relative;
+	overflow:hidden;
+	width: 100%;
+	margin: auto;
+}
+.top_works_box_wrap img {
+	display: block;
+	max-width: none;
+	width: 100%;
+	opacity: 1;	
+	-webkit-transition: opacity 0.4s, transform 0.4s;
+	transition: opacity 0.4s, transform 0.4s;
+	-webkit-transform: scale3d(1, 1, 1);
+	transform: scale3d(1, 1, 1);	
+}
+
+.top_works_box_button {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.top_works_box_button_a {
+	float: left;
+	width: 50%;
+	padding: 1px;
+	box-sizing: border-box;
+}
+.top_works_box_button_b {
+	width: 100%;
+	padding: 1px;
+	box-sizing: border-box;
+}
+
+.top_works_box_modal_box_title {
+	text-align: center;
+	font-size: 90%;
+	margin: 10px;
+	font-weight: 600;
+}
+.top_works_box_modal_sakujyo {
+	text-align: center;
+	font-size: 100%;
+	font-weight: 600;
+	color: #C00;
+	margin: 20px 0px;
+}
+
+.works_new_td_txt_2 {
+	font-size: 70%;
+	margin-top: 10px;
+	line-height: 1.5em;
+	color: #C00;
+	font-weight: 600;
+	text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+.top_works_button {
+	width: 90%;
+	margin: 0 auto;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.top_cast_box {
+	padding: 5px;
+}
+
+.top_cast_box_wrap {
+	position: relative;
+	overflow:hidden;
+	width: 100%;
+	margin: auto;
+}
+.top_cast_box_wrap img {
+	max-width: none;
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+
+.top_cast_box_name {
+	font-size: 90%;
+	margin-bottom: 20px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.top_cast_box_button {
+	margin-bottom: 10px;
+}
+
+.top_cast_box_button_a {
+	float: left;
+	width: 50%;
+	padding: 1px;
+	box-sizing: border-box;
+}
+.top_cast_box_button_b {
+	width: 100%;
+	padding: 1px;
+	box-sizing: border-box;
+}
+
+
+
+
+/*-----------------------------------------------------------------
+ホットニュース設定ページ
+-----------------------------------------------------------------*/
+
+.hotnews_page_box_a {
+	border: 1px #ededed solid;
+	padding: 20px;
+	margin: 5px;
+	box-sizing: border-box;
+}
+.hotnews_page_box_b {
+	float: left;
+}
+.hotnews_page_box_c {
+	margin-left: 110px;
+	text-align: left;
+}
+.top_hotnews_category {
+	font-size: 60%;
+	padding-bottom: 2px;
+	line-height: 1.5em;
+	color: #333;
+}
+.top_hotnews_shop {
+	font-size: 90%;
+	color: #F99;
+	margin-bottom: 2px;
+	line-height: 1.5em;
+	font-weight: 600;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;		
+}
+.top_hotnews_title {
+	font-size: 70%;
+	color: #000;
+	margin-bottom: 7px;
+	line-height: 1.5em;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.top_hotnews_ymd {
+	font-size: 50%;
+	color: #999;
+	margin-bottom: 5px;
+	line-height: 1.5em;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;		
+}
+.top_hotnews_comment {
+	font-size: 70%;
+	color: #666;
+	margin-bottom: 7px;
+	line-height: 1.5em;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;		
+}
+
+.hotnews_photo_area {
+	margin-top: 0px;
+	padding-top: 50px;
+	padding-bottom: 100px;
+	margin-bottom: 50px;
+	border-bottom: 1px #CCCCCC solid;
+	
+}
+
+@media screen and (max-width: 1200px) {
+.hotnews_page_box_a {
+	border: 1px #ededed solid;
+	padding: 10px;
+	margin: 5px;
+	box-sizing: border-box;
+}
+.hotnews_page_box_b {
+	float: left;
+}
+.hotnews_page_box_c {
+	margin-left: 100px;
+	text-align: left;
+}
+
+.top_hotnews_category {
+	font-size: 60%;
+	padding-bottom: 2px;
+	line-height: 1.5em;
+	color: #333;
+}
+.top_hotnews_shop {
+	font-size: 90%;
+	color: #F99;
+	margin-bottom: 2px;
+	line-height: 1.5em;
+	font-weight: 600;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;		
+}
+.top_hotnews_title {
+	font-size: 70%;
+	color: #000;
+	margin-bottom: 7px;
+	line-height: 1.5em;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.top_hotnews_ymd {
+	font-size: 50%;
+	color: #999;
+	margin-bottom: 5px;
+	line-height: 1.5em;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;		
+}
+
+}
+
+
+/*-----------------------------------------------------------------
+ピックアップ　ページ
+-----------------------------------------------------------------*/
+
+.pickup_page_box {
+	padding: 10px;
+	margin-bottom: 30px;
+	margin-left: 5px;
+	margin-right: 5px;
+	border: 1px #ededed solid;
+	text-align: left;
+	height: 530px;
+}
+.pickup_page_box img {
+	width: 100%;
+	margin-bottom: 10px;
+}
+.pickup_page_box_category {
+    font-size: 60%;
+	padding-top: 10px;
+    padding-bottom: 2px;
+    line-height: 1.5em;
+    color: #333;
+	text-align: center;
+}
+.pickup_page_box_shop {
+    font-size: 90%;
+    color: #F99;
+    margin-bottom: 7px;
+    line-height: 1.5em;
+    font-weight: 600;
+	border-bottom: 1px #CCCCCC solid;
+	padding-bottom: 7px;	
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	text-align: center;
+}
+.pickup_page_box_title {
+	font-size: 90%;
+    color: #F66;
+    margin-bottom: 10px;
+    line-height: 1.5em;
+}
+.pickup_page_box_naiyou {
+	font-size: 70%;
+	color: #999;
+	margin-bottom: 0px;
+    line-height: 1.5em;
+}
+
+@media screen and (max-width: 1200px) {
+.pickup_page_box {
+	padding: 10px;
+	margin-bottom: 30px;
+	margin-left: 0px;
+	margin-right: 0px;
+	border: 1px #ededed solid;
+	text-align: left;
+	height: auto;
+}
+
+}
+
+
+
+
+
+/*-----------------------------------------------------------------
+当日出勤ページ
+-----------------------------------------------------------------*/
+
+.todayscast_button {
+	width: 300px;
+	margin: 0 auto;
+}
+.todayscast_button_2 {
+	width: 300px;
+	padding-top: 20px;
+	margin: 0 auto;
+}
+.todayscast_attention {
+	font-size: 80%;
+	color: #F33;
+	margin-bottom: 20px;
+	text-align: center;
+}
+.todayscast_box_1 {
+	border: 1px #FF9999 solid;
+	padding: 7px 0px;
+	text-align: center;
+	background: rgba(255,204,204,0.5);
+	border-radius: 3px;
+}
+.todayscast_box_2 {
+	border: 1px #FF9999 solid;
+	padding: 7px 0px;
+	text-align: center;
+	border-radius: 3px;	
+}
+.todayscast_box_font {
+	font-size: 80%;
+}
+
+.todayscast_hyouji {
+	background: rgba(0,198,255,0.5);
+	color: #fff;
+	font-size: 60%;
+	text-align: center;
+	padding: 2px;
+	border-radius: 3px;
+	margin: 2px;
+}
+.todayscast_hyouji_no {
+	background: rgba(255,53,0,0.5);
+	color: #fff;
+	font-size: 60%;
+	text-align: center;
+	padding: 2px;
+	border-radius: 3px;
+	margin: 2px;
+}
+
+@media screen and (max-width: 1200px) {
+.todayscast_button {
+	width: 90%;
+	margin: 0 auto;
+}
+.todayscast_button_2 {
+	width: 90%;
+	padding-top: 20px;
+	margin: 0 auto;
+}
+.todayscast_attention {
+	font-size: 80%;
+	color: #F33;
+	margin-bottom: 20px;
+	text-align: left;
+}
+}
+
+/*-----------------------------------------------------------------
+体験ページ
+-----------------------------------------------------------------*/
+
+.taiken_ok {
+	text-align: center;
+	font-size: 120%;
+	line-height: 1.9em;
+}
+.taiken_ok_sub {
+	font-weight: 800;
+	color: #F66;
+}
+@media screen and (max-width: 1200px) {
+.taiken_ok {
+	text-align: center;
+	font-size: 90%;
+	line-height: 1.7em;
+}
+.taiken_ok_sub {
+	font-weight: 800;
+	color: #F66;
+}
+}
+
+/*-----------------------------------------------------------------
+3日間出勤ページ
+-----------------------------------------------------------------*/
+
+.castschedule_a {
+	width: 100%;
+	padding: 1px;
+	box-sizing: border-box;
+}
+
+.castschedule_modal_box {
+	padding-top: 10px;
+	padding-bottom: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.castschedule_modal_box_title {
+	text-align: center;
+	font-size: 90%;
+	margin: 10px;
+	font-weight: 600;
+}
+
+.castschedule_modal_box_font {
+	font-size: 90%;
+}
+
+@media screen and (max-width: 1200px) {
+.castschedule_modal_box_font {
+	font-size: 80%;
+}
+}
+
+.modal_box {
+    position: fixed;
+    z-index: 7777;
+    display: none;
+    width: 80%;
+    max-width: 840px;
+    margin: 0;
+    padding: 60px 2vw 80px;
+    text-align: center;
+    background: #fff;
+    box-sizing: border-box;
+	border-radius: 3px;
+	
+}
+.h_base {
+	text-align: center;
+	font-size: 90%;
+	margin: 10px;
+	font-weight: 600;
+	padding: 20px 0px;	
+} 
+.modal_close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 62px;
+    font-size: 46px;
+    color: #000;
+    line-height: 62px;
+    text-align: center;
+}
+ 
+.modal_close i {
+    line-height: 62px;
+    vertical-align: bottom;
+}
+ 
+.modal_bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 6666;
+    display: none;
+    width: 100%;
+    height: 120%;
+    background-color: rgba(0,0,0,0.7);
+}
+ 
+.link_area {
+    overflow: hidden;
+    max-width: 410px;
+    margin: 60px auto 0;
+    text-align: center;
+}
+ 
+.link_area .modal_link {
+    display: inline;
+}
+ 
+.link_area .modal_link a {
+    display: inline-block;
+    width: 180px;
+    color: #000;
+    line-height: 2.5;
+    text-decoration: none;
+    margin: 0 10px;
+    background: #e6e6e6;
+}
+ 
+.link-area ul li.modal_link:first-child a {
+    float: left;
+}
+ 
+.link-area ul li.modal_link:last-child a {
+    float: right;
+}
+ 
+ 
+@media screen and (max-width: 769px) {
+ 
+/*  ウィンドウサイズ769px以下の時のスタイル  */
+ 
+  .modal_box {
+      padding: 50px 2vw 40px;
+  }
+ 
+  .modal_close {
+      width: 40px;
+      line-height: 40px;
+      font-size: 30px;
+  }
+ 
+  .modal_close i {
+      line-height: 44px;
+  }
+ 
+  .link_area {
+      margin: 25px auto 0;
+  }
+ 
+  .link_area .modal_link a {
+      margin: 15px auto 0;
+  }
+ 
+  .link_area ul li.modal_link:first-child a {
+      float: none;
+      margin-top: 0;
+  }
+ 
+  .link_area ul li.modal_link:last-child a {
+      float: none;
+  }
+ 
+}
+
+/*-----------------------------------------------------------------
+キャスト・店舗設定ページ
+-----------------------------------------------------------------*/
+
+.cast_people {
+	font-size: 90%;
+	color: #000;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.shop_areaname_base {
+	width: 250px;
+	margin: 0 auto;
+	padding-top: 40px;
+	padding-bottom: 10px;
+}
+.shop_areaname {
+	font-size: 90%;
+	color: #fff;
+	background: #39F;
+	font-weight: 600;
+	text-align: center;
+	padding: 3px 0px;
+	border-radius: 3px;	
+}
+
+.cast_sakujyo {
+	text-align: center;
+	font-size: 100%;
+	font-weight: 600;
+	color: #C00;
+	margin: 20px 0px;
+}
+
+/*新規登録*/
+
+.castnew_top {
+	text-align: center;
+	line-height: 1.5em;
+	color: #C00;
+	font-weight: 600;
+	font-size: 90%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.castnew_category_area {
+	margin-top: 100px;
+	padding-top: 100px;
+	border-top: 1px #CCCCCC solid;	
+}
+.castnew_category_area_2 {
+	padding-top: 20px;	
+}
+.castnew_photo_area {
+	margin-top: 100px;
+	padding-top: 100px;
+	padding-bottom: 100px;
+	margin-bottom: 50px;
+	border-top: 1px #CCCCCC solid;
+	border-bottom: 1px #CCCCCC solid;
+	
+}
+.castnew_td_txt {
+	font-size: 80%;
+	line-height: 1.5em;
+}
+.castnew_td_txt_2 {
+	font-size: 70%;
+	line-height: 1.5em;
+	color: #C00;
+	font-weight: 600;
+	text-align: center;
+}
+
+.input-file .preview {
+  background-image: url(/hoge.jpg);
+}
+.input-file input[type="file"] {
+  opacity: 0;
+}
+
+
+.contain {
+  object-fit: contain;
+  width: 300px;
+  height: 300px;
+}
+.view_box img {
+	padding-top: 10px;
+}
+.file-btn {
+    display: inline-block;
+    cursor: pointer;
+}
+.file-btn input {
+    display: none;
+}
+.file-btn2 {
+	border: 1px #FF6666 solid;
+	padding: 5px;
+	width: 200px;
+	font-size: 80%;
+	color: #FF6666;
+	margin: 0 auto;
+	border-radius: 3px;
+}
+.file-btn2:hover {
+	opacity: 0.5;
+}
+.img_del {
+	color: #FF6666;
+}
+
+@media screen and (max-width: 1200px) {
+
+.castnew_td_txt {
+	font-size: 60%;
+	line-height: 1.5em;
+}
+
+.contain {
+  object-fit: contain;
+  width: 120px;
+  height: 120px;
+}
+.file-btn2 {
+	border: 1px #FF6666 solid;
+	padding: 5px;
+	width: 100px;
+	font-size: 80%;
+	color: #FF6666;
+	margin: 0 auto;
+	border-radius: 3px;
+}
+}
+
+
+/*-----------------------------------------------------------------
+キャスト写真設定
+-----------------------------------------------------------------*/
+
+.castphoto_number {
+	margin-bottom: 5px;
+}
+
+.castphoto_contain {
+  object-fit: contain;
+  width: 300px;
+  height: 300px;
+}
+
+@media screen and (max-width: 1200px) {
+.castphoto_contain {
+  object-fit: contain;
+  width: 120px;
+  height: 120px;
+}
+}
+
+
+/*-----------------------------------------------------------------
+写真
+-----------------------------------------------------------------*/
+
+.my-gallery {
+	text-align: center;
+	margin: 0 auto;
+	width: 100%;
+}
+.trimming {
+	width: 80px;
+	height: 80px;
+	margin-bottom: 0;
+}
+.trimming img {
+	width: 80px;
+	height: 80px;
+	object-fit: cover;	
+}
+
+@media screen and (max-width: 1200px) {
+
+.trimming {
+	width: 80px;
+	height: 90px;
+}
+.trimming img {
+	width: 80px;
+	height: 80px;
+	object-fit: cover;	
+}
+
+}
+
+/*-----------------------------------------------------------------
+キャスト並び替えページ
+-----------------------------------------------------------------*/
+
+.castsort_attention {
+	font-size: 80%;
+	color: #F33;
+	margin-bottom: 20px;
+	text-align: center;
+	line-height: 1.5em;
+}
+
+#castsort_area {
+	margin-top: 10px;
+}
+#castsort_area ul {
+	width: 100%;
+}
+#castsort_area li {
+	border: 1px #CCCCCC solid;
+	padding: 10px;
+	display: inline-block;
+	width: 12.5%;
+	box-sizing: border-box;
+	text-align: center;
+	margin: 5px;
+}
+.castsort_area_name {
+	font-size: 80%;
+	color: #333;
+}
+
+
+@media screen and (max-width: 1200px) {
+.castsort_attention {
+	font-size: 60%;
+	color: #F33;
+	margin-bottom: 20px;
+	text-align: left;
+	line-height: 1.5em;	
+}
+
+#castsort_area li {
+	border: 1px #CCCCCC solid;
+	padding: 10px;
+	display: inline-block;
+	width: 18%;
+	box-sizing: border-box;
+	text-align: center;
+	margin: 3px;
+}
+.castsort_area_name {
+	font-size: 60%;
+	color: #333;
+}
+}
+@media screen and (max-width: 640px) {
+
+#castsort_area li {
+	border: 1px #CCCCCC solid;
+	padding: 10px;
+	display: inline-block;
+	width: 30%;
+	box-sizing: border-box;
+	text-align: center;
+	margin: 3px;
+}
+.castsort_area_name {
+	font-size: 60%;
+	color: #333;
+}
+}
+
+/*-----------------------------------------------------------------
+ニュース設定ページ
+-----------------------------------------------------------------*/
+
+.news_base {
+	width: 800px;
+	margin: 0 auto;
+}
+.news_box {
+	border-bottom: 1px #CCCCCC dashed;
+	padding-bottom: 30px;
+	margin-bottom: 30px;
+}
+.news_box_top {
+	text-align: center;
+	color: #F66;
+	font-size: 70%;
+	line-height: 1.5em;
+	margin-bottom: 30px;
+}
+.news_box_ymd_1 {
+	font-size: 80%;
+	line-height: 1.7em;
+	margin-bottom: 5px;
+}
+
+.news_box_title {
+	font-size: 90%;
+	color: #000;
+	font-weight: 600;
+	line-height: 1.5em;
+}
+.news_box_title:hover {
+	opacity: 0.5;
+}
+.news_box_title_2 {
+	font-size: 90%;
+	color: #000;
+	font-weight: 600;
+	line-height: 1.5em;
+}
+.news_box_naiyou {
+	font-size: 80%;
+	line-height: 1.5em;
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top: 1px #CCCCCC solid;
+}
+
+.news_button_box {
+	margin-top: 7px;
+}
+
+.new_news_1 {
+	font-size: 60%;
+	color: #F66;	
+}
+
+@media screen and (max-width: 1200px) {
+.news_base {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.news_box_ymd_1 {
+	font-size: 60%;
+	line-height: 1.7em;	
+	margin-bottom: 5px;	
+}
+
+.news_box_title {
+	font-size: 70%;
+	color: #000;
+	font-weight: 600;
+	line-height: 1.5em;
+}
+.news_box_title_2 {
+	font-size: 70%;
+	color: #000;
+	font-weight: 600;
+	line-height: 1.5em;
+}
+.news_box_naiyou {
+	font-size: 60%;
+	line-height: 1.5em;
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top: 1px #CCCCCC solid;
+}
+
+}
+
+
+
+/*-----------------------------------------------------------------
+イベント設定ページ
+-----------------------------------------------------------------*/
+
+.calendar_title {
+	text-align: center;
+	font-size: 140%;	
+	color: #000;
+	font-weight: 600;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.calendar_page_icon {
+	font-size: 90%;
+	margin: 5px 5px;
+	font-weight: 600;
+}
+
+.calendar_page_title {
+	font-size: 80%;
+	margin: 0px 5px 10px;
+	line-height: 1.5em;	
+}
+
+#shop_event {
+	width: 100%;
+	float: left;
+	margin-bottom: 20px;
+}
+#shop_event .event_back {
+	width: 35%;
+	text-align: center;
+	float: left;
+	margin: 10px 20px;
+	padding: 10px;
+}
+
+#shop_event .event_next {
+	width: 90%;
+	text-align: center;
+	margin: 0 auto;
+	padding-top: 30px;	
+}
+
+#shop_event table.event_t {
+	margin: 0 auto;
+	width: 96%;
+	margin-top: 5px;
+	border-collapse: collapse;
+	border: 1px #999999 solid;
+}
+#shop_event td.data {
+	width: 40px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 12px;
+	border: 1px #999999 solid;
+	padding: 10px 0px;
+}
+#shop_event td.naiyou {
+	border: 1px #999999 solid;
+	color: #000;
+	padding: 5px;
+}
+#shop_event tr.sat {
+	background: rgba(0,244,255,0.5);
+}
+#shop_event tr.sun {
+	background: rgba(255,207,207,0.5);
+}
+
+@media screen and (max-width: 1200px) {
+#shop_event .event_back {
+	width: 35%;
+	text-align: center;
+	float: left;
+	margin: 10px 10px;
+	padding: 10px;
+}
+#shop_event .event_next {
+	width: 90%;
+	text-align: center;
+	margin: 0 auto;
+	padding-top: 30px;	
+}
+
+}
+
+/*-----------------------------------------------------------------
+スライダー設定ページ
+-----------------------------------------------------------------*/
+
+.slider_caution {
+	font-size: 90%;
+	text-align: center;
+	color: #333;
+	font-weight: 600;
+	line-height: 1.5em;
+	padding-bottom: 20px;
+}
+.slider_caution_sub {
+	font-size: 110%;
+	font-weight: 800;
+	color: #C00;
+}
+
+.slider_link_area {
+	padding-top: 30px;
+	font-size: 80%;
+	color: #333;	
+}
+
+@media screen and (max-width: 1200px) {
+.slider_caution {
+	font-size: 80%;
+	text-align: center;
+	color: #333;
+	font-weight: 600;
+	line-height: 1.5em;
+	padding-bottom: 20px;
+}
+
+.slider_link_area {
+	padding-top: 10px;
+	font-size: 80%;
+	color: #333;	
+}
+
+}
+
+/*-----------------------------------------------------------------
+お問合せ
+-----------------------------------------------------------------*/
+
+.contact_page_base {
+	padding-top: 30px;
+	border-bottom: 1px #CCCCCC solid;
+	padding-bottom: 60px;
+	margin-bottom: 3
+	0px;
+}
+
+/*-----------------------------------------------------------------
+マイページ
+-----------------------------------------------------------------*/
+
+.mypage_page_base {
+	padding-top: 30px;
+	border-bottom: 1px #CCCCCC solid;
+	padding-bottom: 60px;
+	margin-bottom: 3
+	0px;
+}
+
+.mypage_page_base_2 {
+	padding-top: 30px;
+	padding-bottom: 60px;
+	margin-bottom: 30px;
+	width: 800px;
+	margin: 0 auto;
+}
+
+.mypage_attention {
+	font-size: 90%;
+	color: #F00;
+	padding-top: 20px;
+	font-weight: 600;
+	text-align: center;
+}
+
+.mypage_box_title {
+	background: #CCC;
+	color: #000;
+	text-align: center;
+	font-size: 110%;
+	font-weight: 600;
+	padding-top: 15px;
+	padding-bottom: 10px;
+}
+.mypage_box {
+	border: 5px #CCC solid;
+	padding: 20px;
+	margin-bottom: 50px;
+}
+
+.mypage_title {
+	font-size: 100%;
+	color: #000;
+	font-weight: 600;
+	padding-bottom: 5px;
+}
+.mypage_naiyou {
+	font-size: 90%;
+	padding-left: 30px;
+	font-weight: 600;
+	color: #999;
+	padding-bottom: 10px;
+	margin-bottom: 40px;
+	border-bottom: 1px #CCCCCC solid;
+}
+
+.agreement {
+	font-size: 90%;
+	line-height: 1.5em;
+}
+
+@media screen and (max-width: 1200px) {
+.mypage_page_base_2 {
+	padding-top: 30px;
+	padding-bottom: 60px;
+	margin-bottom: 30px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.mypage_attention {
+	font-size: 90%;
+	color: #F00;
+	padding-top: 20px;
+	font-weight: 600;
+	text-align: left;
+}
+
+.mypage_title {
+	font-size: 90%;
+	color: #000;
+	font-weight: 600;
+	padding-bottom: 5px;
+}
+.mypage_naiyou {
+	font-size: 70%;
+	padding-left: 30px;
+	font-weight: 600;
+	color: #999;
+	padding-bottom: 10px;
+	margin-bottom: 40px;
+	border-bottom: 1px #CCCCCC solid;
+}
+
+.agreement {
+	font-size: 60%;
+}
+
+}
+
+/*-----------------------------------------------------------------
+ボタン関連
+-----------------------------------------------------------------*/
+
+.button_area {
+	margin: 0 auto;	
+	width: 600px;
+}
+@media screen and (max-width: 1200px) {
+.button_area {
+	margin: 0 auto;	
+	width: 250px;
+}
+}
+
+
+a.btn_1 {
+	font-size: 60%;
+	color: #FF6666;
+	text-align: center;
+	padding: 5px 0px;
+	display: block;
+	text-decoration: none;
+	cursor: pointer;
+	white-space: nowrap;
+	border: 1px #FF6666 solid;
+	border-radius: 3px;
+	width: 98%;
+	letter-spacing: 1px;
+}
+a.btn_1:hover {
+	opacity: 0.5;			
+}
+
+a.btn_2 {
+	font-size: 90%;
+	color: #FF6666;
+	font-weight: 600;
+	text-align: center;
+	padding: 20px 0px;
+	display: block;
+	text-decoration: none;
+	cursor: pointer;
+	white-space: nowrap;
+	border: 1px #FF6666 solid;
+	border-radius: 3px;
+	width: 100%;
+	letter-spacing: 1px;
+}
+a.btn_2:hover {
+	opacity: 0.5;			
+}
+
+
+
+
+
+
+
+
+a.btn_3 {
+	font-size: 90%;
+	color: #FF6666;
+	background: rgba(255,236,234,0.5);
+	font-weight: 600;
+	text-align: center;
+	padding: 5px 0px;
+	display: block;
+	text-decoration: none;
+	cursor: pointer;
+	white-space: nowrap;
+	border: 1px #FF6666 solid;
+	border-radius: 3px;
+	width: 100%;
+	letter-spacing: 1px;
+}
+a.btn_3:hover {
+	opacity: 0.5;			
+}
+
+a.btn_line {
+	font-size: 90%;
+	color: #3C6;
+	font-weight: 600;
+	text-align: center;
+	padding: 20px 0px;
+	display: block;
+	text-decoration: none;
+	cursor: pointer;
+	white-space: nowrap;
+	border: 1px #3C6 solid;
+	border-radius: 3px;
+	width: 100%;
+	letter-spacing: 1px;
+}
+a.btn_line:hover {
+	opacity: 0.5;			
+}
+
+a.btn_sidemenu {
+	width: 80px;
+	font-size: 70%;
+	font-weight: 600;
+	color: #fff;
+	line-height: 1.5em;
+	text-align: center;
+	padding: 15px 0;
+	margin: 0 auto;
+	display: block;
+	text-decoration: none;
+	cursor: pointer;
+	border-radius: 0%;
+	-webkit-border-radius: 0%;
+	-moz-border-radius: 0%;
+	background: #a1a1a1;
+	white-space: nowrap;
+	font-family: 'Montserrat', sans-serif;
+}
+
+/*-----------------------------------------------------------------
+テーブルタグ
+-----------------------------------------------------------------*/
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+	margin-top:2px;	
+}
+table td.t_td1 {
+	border-bottom: 1px #CCCCCC solid;
+	padding: 10px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 60%;
+	line-height: 1.5em;
+	width: 60%;
+	letter-spacing: 1px;
+	word-break: break-all; 
+}
+table td.t_td2 {
+	border-bottom: 1px #CCCCCC solid;
+	background: rgba(212,236,243,0.8);
+	padding: 10px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 60%;
+	line-height: 1.5em;
+	width: 40%;
+	letter-spacing: 1px;
+	word-break: break-all; 
+}
+table td.t_td3 {
+	border-bottom: 1px #CCCCCC solid;
+	background: rgba(255,204,204,0.5);
+	padding: 10px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 60%;
+	line-height: 1.5em;
+	width: 40%;
+	letter-spacing: 1px;
+	word-break: break-all; 
+}
+
+
+table td.t_td4 {
+	border-bottom: 1px #CCCCCC solid;
+	padding: 10px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 90%;
+	line-height: 1.5em;
+	width: 50%;
+	letter-spacing: 1px;
+	word-break: break-all; 
+}
+table td.t_td5 {
+	border-bottom: 1px #CCCCCC solid;
+	background: rgba(255,204,204,0.5);
+	padding: 10px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 90%;
+	line-height: 1.5em;
+	width: 25%;
+	letter-spacing: 1px;
+	word-break: break-all; 
+}
+table td.t_td6 {
+	border-bottom: 1px #CCCCCC solid;
+	padding: 10px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 90%;
+	line-height: 1.5em;
+	width: 25%;
+	letter-spacing: 1px;
+	word-break: break-all; 
+}
+
+table td.t_td7 {
+	border-bottom: 1px #CCCCCC solid;
+	background: rgba(255,204,204,0.5);
+	padding: 10px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 90%;
+	line-height: 1.5em;
+	width: 50%;
+	letter-spacing: 1px;
+	word-break: break-all; 
+}
+table td.t_td8 {
+	border-bottom: 1px #CCCCCC solid;
+	padding: 10px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 90%;
+	line-height: 1.5em;
+	width: 50%;
+	letter-spacing: 1px;
+	word-break: break-all; 
+}
+
+/*プロフ写真登録*/
+table td.t_td9 {
+	border-bottom: 1px #CCCCCC dotted;
+	background: rgba(255,222,231,0.5);
+	padding: 10px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 100%;
+	font-weight: 600;
+	color: #F66;
+	line-height: 1.5em;
+	width: 50%;
+	letter-spacing: 1px;
+	word-break: break-all; 	
+}
+table td.t_td9 img {
+	padding: 5px;
+}
+table td.t_td9-2 {
+	border-bottom: 1px #CCCCCC dotted;
+	background: rgba(255,222,231,0.5);
+	padding: 10px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 100%;
+	font-weight: 600;
+	color: #F66;
+	line-height: 1.5em;
+	width: 50%;
+	letter-spacing: 1px;
+	word-break: break-all; 	
+}
+table td.t_td10 {
+	border-bottom: 1px #CCCCCC dotted;
+	padding: 10px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 100%;
+	font-weight: 600;	
+	line-height: 1.5em;
+	width: 50%;
+	letter-spacing: 1px;
+	word-break: break-all; 	
+}
+table td.t_td10-2 {
+	border-bottom: 1px #CCCCCC dotted;
+	padding: 10px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 100%;
+	font-weight: 600;	
+	line-height: 1.5em;
+	width: 50%;
+	letter-spacing: 1px;
+	word-break: break-all; 	
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 1200px) {
+table {
+	border-collapse: collapse;
+	max-width: 100%;		
+}
+table td.t_td1 {
+	border-bottom: 1px #CCCCCC solid;
+	padding: 10px 0px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 60%;
+	line-height: 1.5em;
+	width: 60%;
+	letter-spacing: 1px;
+	word-break:break-all; 
+}
+table td.t_td2 {
+	border-bottom: 1px #CCCCCC solid;
+	background: rgba(212,236,243,0.8);
+	padding: 10px 0px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 60%;
+	line-height: 1.5em;
+	width: 40%;
+	letter-spacing: 1px;
+	word-break:break-all; 
+}
+table td.t_td3 {
+	border-bottom: 1px #CCCCCC solid;
+	background: rgba(255,204,204,0.5);
+	padding: 10px 0px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 60%;
+	line-height: 1.5em;
+	width: 40%;
+	letter-spacing: 1px;
+	word-break:break-all; 
+}
+
+table td.t_td4 {
+	border-bottom: 1px #CCCCCC solid;
+	padding: 10px 0px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 60%;
+	line-height: 1.5em;
+	width: 44%;
+	letter-spacing: 1px;
+	word-break: break-all; 
+}
+table td.t_td5 {
+	border-bottom: 1px #CCCCCC solid;
+	background: rgba(255,204,204,0.5);
+	padding: 10px 0px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 60%;
+	line-height: 1.5em;
+	width: 28%;
+	letter-spacing: 1px;
+	word-break: break-all; 
+}
+table td.t_td6 {
+	border-bottom: 1px #CCCCCC solid;
+	padding: 10px 0px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 60%;
+	line-height: 1.5em;
+	width: 28%;
+	letter-spacing: 1px;
+	word-break: break-all; 
+}
+
+table td.t_td7 {
+	border-bottom: 1px #CCCCCC solid;
+	background: rgba(255,204,204,0.5);
+	padding: 10px 0px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 60%;
+	line-height: 1.5em;
+	width: 50%;
+	letter-spacing: 1px;
+	word-break: break-all; 
+}
+table td.t_td8 {
+	border-bottom: 1px #CCCCCC solid;
+	padding: 10px 0px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 60%;
+	line-height: 1.5em;
+	width: 50%;
+	letter-spacing: 1px;
+	word-break: break-all; 
+}
+
+/*プロフ写真登録*/
+table td.t_td9 {
+	border-bottom: 1px #CCCCCC dotted;
+	background: rgba(255,222,231,0.5);
+	padding: 10px 0px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 90%;
+	font-weight: 600;
+	color: #F66;	
+	line-height: 1.5em;
+	width: 40%;
+	letter-spacing: 1px;
+	word-break: break-all; 	
+}
+table td.t_td9-2 {
+	border-bottom: 1px #CCCCCC dotted;
+	background: rgba(255,222,231,0.5);
+	padding: 10px 0px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 90%;
+	font-weight: 600;
+	color: #F66;	
+	line-height: 1.5em;
+	width: 60%;
+	letter-spacing: 1px;
+	word-break: break-all; 	
+}
+table td.t_td10 {
+	border-bottom: 1px #CCCCCC dotted;
+	padding: 10px 0px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 70%;
+	font-weight: 600;
+	line-height: 1.5em;
+	width: 40%;
+	letter-spacing: 1px;
+	word-break: break-all; 	
+}
+table td.t_td10-2 {
+	border-bottom: 1px #CCCCCC dotted;
+	padding: 10px 0px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 70%;
+	font-weight: 600;
+	line-height: 1.5em;
+	width: 60%;
+	letter-spacing: 1px;
+	word-break: break-all; 	
+}
+
+/*店舗登録　システム*/
+table td.t_td_system_1 {
+	width: 100%;
+	text-align: center;
+	border-bottom: 1px #dadada dotted;
+	padding-top: 10px;
+	background: #ffeaea;
+}
+table td.t_td_system_2 {
+	width: 50%;
+	text-align: left;
+	vertical-align: middle;
+	border-bottom: 1px #dadada dotted;
+	border-right: 1px #dadada dotted; 	
+	padding-top: 10px;
+	line-height: 1.5em;				
+}
+table td.t_td_system_3 {
+	width: 50%;
+	text-align: left;
+	vertical-align: middle;
+	border-bottom: 1px #dadada dotted;	
+	padding-top: 10px;
+	line-height: 1.5em;						
+}
+table td.t_td_system_4 {
+	width: 30%;
+	text-align: left;
+	vertical-align: middle;
+	border-bottom: 1px #dadada dotted;
+	border-right: 1px #dadada dotted; 	
+	padding-top: 10px;
+	line-height: 1.5em;				
+}
+table td.t_td_system_5 {
+	width: 70%;
+	text-align: left;
+	vertical-align: middle;
+	border-bottom: 1px #dadada dotted;	
+	padding-top: 10px;
+	line-height: 1.5em;						
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

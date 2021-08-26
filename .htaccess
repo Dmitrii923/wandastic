@@ -1,0 +1,18 @@
+
+<Files ~ "\.(html|php|jpe?g|gif|png|css|js|pdf)$">
+Header set Pragma no-cache
+Header set Cache-Control no-cache
+</Files>
+
+ErrorDocument 404 https://www.wandastic.com/
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^wandastic\.com$
+RewriteRule ^(.*)$ https://www.wandastic.com/$1 [R=301,L]
+
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://www.wandastic.com/$1 [R=301,L]
+
+RewriteCond %{THE_REQUEST} ^.*/index.php
+RewriteRule ^(.*)index.php$ https://www.wandastic.com/$1 [R=301,L]
+

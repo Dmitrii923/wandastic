@@ -1,0 +1,570 @@
+/*
+Copyright (c) 2018, Monochrome Design Studio. All rights reserved.
+*/
+
+body {
+	font-family: "Noto Sans Japanese";
+	-webkit-text-size-adjust: 100%;
+	background-color: #fff;
+	color: #333;
+	letter-spacing: 2px;
+	line-height: 1.5em;	
+	min-height: 100%;
+	margin: 0 auto;
+	padding: 0;
+	display: table-cell;
+	vertical-align: middle;		
+}
+
+html {
+	height: 100%;
+	margin: 0 auto;
+	padding: 0;
+	display: table;
+}
+
+.clear {
+	clear: both;　/*floatの解除*/
+}
+
+
+
+/*-----------------------------------------------------------------
+フォーム構成
+-----------------------------------------------------------------*/
+
+/*まず、フォーム全体の囲み罫や角丸を指定*/
+form#form {
+	color: #666;
+	padding: 7px;
+	margin: 0 auto;
+	width: 300px;
+}
+
+form#form p {
+	margin-bottom: 10px;
+	padding: 10px;
+	font-size: 100%;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+/* span要素をブロック化しフロートでフォーム部品と横に並べる*/
+form#form p span {
+	width: 100%;
+	margin-bottom: 10px;
+	display:block;
+	float:left;
+	font-size: 80%;
+}
+
+/*「:after」で <p>の末尾でフロートをクリア*/
+form#form p:after {
+	content:".";
+	display:block;
+	height:0;
+	visibility:hidden;
+	clear:both;     /*←フロートをクリア*/
+}
+
+/* テキスト入力部品の見た目を統一する */
+form#form p label .txtfiled, form#form p select {
+	padding: 10px 10px;
+	width: 100%;
+	line-height: 1.7em;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+	color: #666;
+	border: solid 1px #ccc;
+	background: #fff;
+    -webkit-box-shadow: 1px 1px 1px #fff;
+    -moz-box-shadow: 1px 1px 1px #fff;
+	box-shadow: 1px 1px 1px #fff;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+form#form p select {
+	/*selectは250では大きすぎるので*/
+	padding: 10px 10px;	
+	width: 210px;
+	font-size: 16px;
+	line-height: 1.7em;
+	letter-spacing: 2px;
+	border: solid 1px #ccc;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;	
+}
+
+input[type="date"] ,
+input[type="time"] {
+	padding: 10px 10px;
+	width: 190px;	
+	color: #666;
+	border: solid 1px #ccc;
+	background: #fff;
+	font-size: 16px;
+	line-height: 1.7em;
+	letter-spacing: 2px;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;		
+}
+
+/*チェックボックス、ラジオボタンのブロックの指定*/
+form#form p span.check, form#form p span.radio {
+	display:block;
+	width:300px;
+}
+/*チェックボックス、ラジオボタンの label要素を横に並べる*/
+form#form p span.check label, form#form p span.radio label {
+	margin-right: 2em;
+	display: block;
+	float: left;
+	width: 9em;
+}
+/*ラジオボタンの label要素の幅は9emでは大きすぎるので調整*/
+form#form p span.radio label {
+	width: 4em;
+}
+/*「:after」で <span>の末尾でフロートをクリア*/
+form#form p span.check:after, form#form p span.radio:after {
+	content:".";
+	display:block;
+	height:0;
+	visibility:hidden;
+	clear:both;     /*←フロートをクリア*/
+}
+
+
+
+.input_area {
+	padding-top: 10px;
+}
+
+/*送信・リセットボタンの体裁を指定（[type="○○"]で属性の値でセレクト）*/
+form#form p input[type="submit"] ,
+form#form p input[type="button"] ,
+form#form p input[type="reset"] {
+	cursor: pointer;     /*←これでカーソルを指先型に変化させる*/
+	font-size: 100%;
+	letter-spacing: 3px;
+	font-weight: 600;
+	width: 100%;
+	padding: 15px 10px;
+	margin-right: 0;
+	margin-left: 0;
+	margin-bottom: 20px;
+	color: #fff;
+    border: 1px solid #bbb;
+    background: #CCC;
+/*↓背景グラデーションの指定です*/
+    background: -moz-linear-gradient(top, #CCC, #CCC);
+    background: -webkit-linear-gradient(top, #CCC, #CCC);
+    background: linear-gradient(#CCC, #CCC);
+/*↓以下、ボックスの角丸、シャドウの指定*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+    -webkit-box-shadow: 1px 1px 1px #fff;
+    -moz-box-shadow: 1px 1px 1px #fff;
+	box-shadow: 1px 1px 1px #fff;
+/* IE用 */
+    filter:progid:DXImageTransform.Microsoft.gradient
+        (startColorstr=#CCC,endColorstr=#CCC);
+    zoom: 1;
+}
+
+.formbtn {
+	display: block;
+    cursor: pointer;
+	font-size: 90%;
+	letter-spacing: 3px;
+	font-weight: 600;
+	width: 100%;
+	padding: 12px 10px;
+	margin-right: 0;
+	margin-left: 0;
+	margin-bottom: 20px;
+	color: #fff;
+    border: 1px solid #bbb;
+    background: #CCC;
+    background: -moz-linear-gradient(top, #CCC, #CCC);
+    background: -webkit-linear-gradient(top, #CCC, #CCC);
+    background: linear-gradient(#CCC, #CCC);
+    filter:progid:DXImageTransform.Microsoft.gradient
+        (startColorstr=#CCC,endColorstr=#CCC);
+    zoom: 1;
+	box-sizing: border-box;	
+}
+.formbtn:after {
+    content: '';
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    width: 7px;
+    height: 7px;	
+    vertical-align: middle;
+    margin-left: 5px;
+    border: #ffffff 1px solid;
+    border-top: none;
+    border-left: none;
+    transform: rotate(-45deg);
+	float: right;
+}
+.formbtn:hover {
+	opacity: 0.5;
+}
+
+form#form p input[type="submit"]:hover ,
+form#form p input[type="button"]:hover ,
+form#form p input[type="reset"]:hover {
+/*↓ここではロールオーバー時の透明度を変更。もちろんグラデーションを指定してもOK*/
+	opacity: 0.5;
+	font-size: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+
+/*まず、フォーム全体の囲み罫や角丸を指定*/
+form#form {
+	color: #666;
+	padding: 7px 0px;
+	margin-bottom: 15px;
+	border: 3px solid #fff;
+	/*↓ボックスの角丸の指定*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	width: 100%;
+}
+
+/*<p>に背景や角丸を指定*/
+form#form p {
+	margin-bottom: 15px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	font-size: 100%;
+	/*↓ボックスの角丸の指定*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+/* span要素をブロック化しフロートでフォーム部品と横に並べる*/
+form#form p span {
+	width: 100%;
+	margin-bottom: 10px;
+	display:block;
+	float: left;
+	font-size: 100%;
+}
+
+/*「:after」で <p>の末尾でフロートをクリア*/
+form#form p:after {
+	content:".";
+	display:block;
+	height:0;
+	visibility:hidden;
+	clear:both;     /*←フロートをクリア*/
+}
+
+/* テキスト入力部品の見た目を統一する */
+form#form p label .txtfiled {
+	padding: 7px 5px;
+	width: 100%;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 10px;
+	color:#666;
+	border: solid 1px #ccc;
+	background: #fff;
+	-webkit-appearance: none;	
+	/*シャドウをつける。*/
+    -webkit-box-shadow: 1px 1px 1px #fff;
+    -moz-box-shadow: 1px 1px 1px #fff;
+	box-shadow: 1px 1px 1px #fff;
+	/*角丸にする*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+form#form p select {
+	/*selectは250では大きすぎるので*/
+	width: 217px;
+	font-size: 16px;
+	line-height: 1.7em;
+	letter-spacing: 2px;
+	border: solid 1px #ccc;	
+	padding: 7px 5px;
+	/*角丸にする*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;	
+}
+
+input[type="date"] ,
+input[type="time"] {
+	padding: 7px 5px;
+	width: 200px;	
+	color: #666;
+	border: solid 1px #ccc;
+	background: #fff;
+	font-size: 16px;
+	line-height: 1.7em;
+	letter-spacing: 2px;
+	/*角丸にする*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+
+/*送信・リセットボタンの体裁を指定（[type="○○"]で属性の値でセレクト）*/
+form#form p input[type="submit"] ,
+form#form p input[type="button"] ,
+form#form p input[type="reset"] {
+	cursor: pointer;     /*←これでカーソルを指先型に変化させる*/
+	font-size: 100%;
+	font-weight: 600;
+	
+	width: 100%;
+	letter-spacing: 3px;	
+	padding: 20px 10px;
+	margin-right: 0;
+	margin-left: 0px;
+	margin-bottom: 0px;	
+	color: #fff;
+    border: 1px solid #bbb;
+    background: #666;
+/*↓背景グラデーションの指定です*/
+    background: -moz-linear-gradient(top, #ccc, #ccc);
+    background: -webkit-linear-gradient(top, #ccc, #ccc);
+    background: linear-gradient(#ccc, #ccc);
+/*↓以下、ボックスの角丸、シャドウの指定*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+    -webkit-box-shadow: 1px 1px 1px #fff;
+    -moz-box-shadow: 1px 1px 1px #fff;
+	box-shadow: 1px 1px 1px #fff;
+/* IE用 */
+    filter:progid:DXImageTransform.Microsoft.gradient
+        (startColorstr=#ccc,endColorstr=#ccc);
+    zoom: 1;
+}
+
+.formbtn {
+    cursor: pointer;
+	font-size: 100%;
+	letter-spacing: 3px;
+	font-weight: 600;
+	width: 100%;
+	padding: 12px 10px;
+	margin-bottom: 20px;
+	color: #fff;
+    border: 1px solid #bbb;
+    background: #CCC;
+    background: -moz-linear-gradient(top, #CCC, #CCC);
+    background: -webkit-linear-gradient(top, #CCC, #CCC);
+    background: linear-gradient(#CCC, #CCC);
+    zoom: 1;
+	box-sizing: border-box;	
+}
+.formbtn:after {
+    content: '';
+    display: inline-block;
+    position: relative;
+    top: 7px;
+    width: 7px;
+    height: 7px;
+    vertical-align: middle;
+	margin-right: 5px;
+    border: #ffffff 1px solid;
+    border-top: none;
+    border-left: none;
+    transform: rotate(-45deg);
+	float: right;
+}
+.formbtn:hover {
+	opacity: 0.5;
+}
+
+form#form p input[type="submit"]:hover ,
+form#form p input[type="button"]:hover ,
+form#form p input[type="reset"]:hover {
+/*↓ここではロールオーバー時の透明度を変更。もちろんグラデーションを指定してもOK*/
+	opacity: 0.5;
+	font-size: 100%;
+}
+	
+}
+
+
+
+/*送信・リセットボタンの体裁を指定（[type="○○"]で属性の値でセレクト）*/
+form#form_kakunin p input[type="submit"] ,
+form#form_kakunin p input[type="button"] {
+	cursor: pointer;     /*←これでカーソルを指先型に変化させる*/
+	font-size: 20px;
+	font-weight: 700;
+	width: 200px;
+	padding: 10px 10px;
+	margin-right: 0.5em;
+	color: #fff;
+    border: 1px solid #bbb;
+    background: #C08B9B;
+/*↓背景グラデーションの指定です*/
+    background: -moz-linear-gradient(top, #E7D6DB, #C08B9B);
+    background: -webkit-linear-gradient(top, #E7D6DB, #C08B9B);
+    background: linear-gradient(#E7D6DB, #C08B9B);
+/*↓以下、ボックスの角丸、シャドウの指定*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+    -webkit-box-shadow: 1px 1px 1px #fff;
+    -moz-box-shadow: 1px 1px 1px #fff;
+	box-shadow: 1px 1px 1px #fff;
+/* IE用 */
+    filter:progid:DXImageTransform.Microsoft.gradient
+        (startColorstr=#E7D6DB,endColorstr=#C08B9B);
+    zoom: 1;
+}
+
+form#form_kakunin p input[type="submit"]:hover ,
+form#form_kakunin p input[type="button"]:hover {
+/*↓ここではロールオーバー時の透明度を変更。もちろんグラデーションを指定してもOK*/
+	opacity: 0.8;
+	font-size: 20px;
+}
+
+@media screen and (max-width: 640px) {
+/*送信・リセットボタンの体裁を指定（[type="○○"]で属性の値でセレクト）*/
+form#form_kakunin p input[type="submit"] ,
+form#form_kakunin p input[type="button"]{
+	cursor: pointer;     /*←これでカーソルを指先型に変化させる*/
+	font-size: 16px;
+	font-weight: 700;
+	width: 140px;
+	padding: 10px 10px;
+	margin-right: 5px;
+	color: #fff;
+    border: 1px solid #bbb;
+    background: #C08B9B;
+/*↓背景グラデーションの指定です*/
+    background: -moz-linear-gradient(top, #E7D6DB, #C08B9B);
+    background: -webkit-linear-gradient(top, #E7D6DB, #C08B9B);
+    background: linear-gradient(#E7D6DB, #C08B9B);
+/*↓以下、ボックスの角丸、シャドウの指定*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+    -webkit-box-shadow: 1px 1px 1px #fff;
+    -moz-box-shadow: 1px 1px 1px #fff;
+	box-shadow: 1px 1px 1px #fff;
+/* IE用 */
+    filter:progid:DXImageTransform.Microsoft.gradient
+        (startColorstr=#E7D6DB,endColorstr=#C08B9B);
+    zoom: 1;
+}
+
+form#form_kakunin p input[type="submit"] :hover ,
+form#form_kakunin p input[type="button"]:hover {
+/*↓ここではロールオーバー時の透明度を変更。もちろんグラデーションを指定してもOK*/
+	opacity: 0.8;
+	font-size: 20px;
+}
+}
+
+/*-----------------------------------------------------------------
+ログイン画面
+-----------------------------------------------------------------*/
+
+#content {
+	font-size:120%;
+	vertical-align:middle;
+}
+
+.top_base_in_title {
+	font-size: 150%;
+	font-weight: 600;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.top_base_in_comment {
+	text-align: center;
+	font-size: 70%;
+	line-height: 1.5em;
+	padding-bottom: 20px;
+}
+
+.top_base_in_title_error {
+	font-size: 150%;
+	font-weight: 600;
+	margin-bottom: 20px;
+	text-align: center;
+	color: #F00;
+}
+.top_base_in_title_error_2 {
+	font-size: 80%;
+	margin-bottom:20px;
+	text-align: center;
+}
+
+.contact_button {
+	margin: 0 auto;
+	width: 250px;
+}
+
+a.btn_2 {
+	font-size: 70%;
+	color: #FF6666;
+	font-weight: 600;
+	text-align: center;
+	padding: 7px 0px;
+	display: block;
+	text-decoration: none;
+	cursor: pointer;
+	white-space: nowrap;
+	border: 1px #FF6666 solid;
+	border-radius: 3px;
+	width: 100%;
+	letter-spacing: 1px;
+}
+a.btn_2:hover {
+	opacity: 0.5;			
+}
+
+@media screen and (max-width: 1200px) {
+
+#content {
+	vertical-align:middle;
+	width: 300px;
+}
+
+.top_base_in_comment {
+	text-align: left;
+	font-size: 70%;
+	line-height: 1.5em;
+}
+
+.contact_button {
+	margin: 0 auto;
+	width: 250px;
+}	
+
+}
+
+
+
+
